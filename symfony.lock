@@ -17,7 +17,7 @@
             "repo": "github.com/symfony/recipes",
             "branch": "main",
             "version": "2.12",
-            "ref": "7b1b0b637b337f6beb895589948cd119da705524"
+            "ref": "a952424ca4d5ab4dbc66c8be78236a5f13124112"
         },
         "files": [
             "config/packages/doctrine.yaml",
@@ -39,7 +39,7 @@
         ]
     },
     "easycorp/easyadmin-bundle": {
-        "version": "4.10",
+        "version": "4.9999999",
         "recipe": {
             "repo": "github.com/symfony/recipes",
             "branch": "main",
@@ -144,7 +144,7 @@
         ]
     },
     "symfony/maker-bundle": {
-        "version": "1.59",
+        "version": "1.58",
         "recipe": {
             "repo": "github.com/symfony/recipes",
             "branch": "main",
@@ -310,6 +310,6 @@
         ]
     },
     "twig/extra-bundle": {
-        "version": "v3.10.0"
+        "version": "v3.9.3"
     }
 }

@@ -41,7 +41,7 @@ class DashboardController extends AbstractDashboardController
     public function configureDashboard(): Dashboard
     {
         return Dashboard::new()
-            ->setTitle('Guestbook');
+            ->setTitle('Guestbook Generated');
     }
 
     public function configureMenuItems(): iterable
@@ -49,6 +49,5 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linktoRoute('Back to the website', 'fas fa-home', 'homepage');
         yield MenuItem::linkToCrud('Conferences', 'fas fa-map-marker-alt', Conference::class);
         yield MenuItem::linkToCrud('Comments', 'fas fa-comments', Comment::class);
-
     }
 }

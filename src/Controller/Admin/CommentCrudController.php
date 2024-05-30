@@ -10,6 +10,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateTimeField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\EmailField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
@@ -34,32 +35,31 @@ class CommentCrudController extends AbstractCrudController
 
     public function configureFilters(Filters $filters): Filters
     {
-            return $filters
-                    ->add(EntityFilter::new('conference'))
-            ;
+        return $filters
+            ->add(EntityFilter::new('conference'))
+        ;
     }
 
     public function configureFields(string $pageName): iterable
     {
         yield AssociationField::new('conference');
-                yield TextField::new('author');
-                yield EmailField::new('email');
-                yield TextareaField::new('text')
-                        ->hideOnIndex()
-            ;
-        yield TextField::new('photoFilename')
-                ->onlyOnIndex()
-            ;
+        yield TextField::new('author');
+        yield EmailField::new('email');
+        yield TextareaField::new('text')
+            ->hideOnIndex()
+        ;
+        yield ImageField::new('photoFilename')
+            ->setBasePath('/uploads/photos')
+            ->setLabel('Photo')
+            ->onlyOnIndex()
+        ;
 
         $createdAt = DateTimeField::new('createdAt')->setFormTypeOptions([
-                'years' => range(date('Y'), date('Y') + 5),
-                'widget' => 'single_text',
-            ]);
+            'years' => range(date('Y'), date('Y') + 5),
+            'widget' => 'single_text',
+        ]);
         if (Crud::PAGE_EDIT === $pageName) {
-                    yield $createdAt->setFormTypeOption('disabled', true);
-                } else {
-                    yield $createdAt;
-                }
+            yield $createdAt->setFormTypeOption('disabled', true);
+        }
     }
-
 }

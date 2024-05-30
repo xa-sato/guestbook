@@ -33,7 +33,7 @@ class Conference
     #[ORM\OneToMany(targetEntity: Comment::class, mappedBy: 'conference', orphanRemoval: true)]
     private Collection $comments;
 
-    #[ORM\Column(type: 'string', length: 255, unique: true)]
+    #[ORM\Column(length: 255, unique: true)]
     private ?string $slug = null;
 
     public function __construct()
@@ -87,7 +87,7 @@ class Conference
         return $this->isInternational;
     }
 
-    public function setIsInternational(bool $isInternational): static
+    public function setInternational(bool $isInternational): static
     {
         $this->isInternational = $isInternational;
 

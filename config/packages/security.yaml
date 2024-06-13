@@ -21,12 +21,13 @@ security:
                 login_path: app_login
                 check_path: app_login
                 enable_csrf: true
+            http_basic: { realm: Admin Area }
+            entry_point: form_login
             custom_authenticator: App\Security\AppAuthenticator
             logout:
                 path: app_logout
                 # where to redirect after logout
                 # target: app_any_route
-            entry_point: 'form_login'
 
             remember_me:
                 secret: '%kernel.secret%'

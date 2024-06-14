@@ -67,7 +67,7 @@ crons:
             if [ "$PLATFORM_ENVIRONMENT_TYPE" = "production" ]; then
                 croncape symfony console app:comment:cleanup
             fi
-            
+
 workers:
     messenger:
         commands:

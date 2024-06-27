@@ -40,7 +40,7 @@ class ConferenceController extends AbstractController
         ])->setSharedMaxAge(3600);
     }
 
-#[Route('/conference_header', name: 'conference_header')]
+    #[Route('/{_locale<%app.supported_locales%>}/conference_header', name: 'conference_header')]
     public function conferenceHeader(ConferenceRepository $conferenceRepository): Response
     {
         return $this->render('conference/header.html.twig', [
